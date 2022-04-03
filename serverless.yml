@@ -1,0 +1,37 @@
+component: express
+name: express--GQel3doG
+org: '1306024158'
+app: zq
+stage: dev
+inputs:
+  src:
+    src: ./
+    exclude:
+      - .env
+      - node_modules/**
+  region: ap-shanghai
+  runtime: Nodejs10.15
+  apigatewayConf:
+    protocols:
+      - http
+      - https
+    environment: release
+    serviceTimeout: 60
+    customDomains:
+      - domain: zhou29.top
+        certificateId: ''
+        isDefaultMapping: false
+        pathMappingSet:
+          - path: /
+            environment: release
+        protocols:
+          - http
+    autoCreateDns: false
+  isAutoCiDeploy: false
+  functionConf:
+    eip: true
+    timeout: 3
+    memorySize: 128
+  layers:
+    - name: '${output:${stage}:${app}:zq-layer.name}'
+      version: '${output:${stage}:${app}:zq-layer.version}'

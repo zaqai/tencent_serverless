@@ -1,0 +1,13 @@
+org: '1306024158'
+app: zq
+stage: dev
+component: layer
+name: zq-layer
+inputs:
+  name: zq-layer
+  region: ap-shanghai
+  src:
+    src: ../node_modules
+    targetDir: /node_modules
+  runtimes:
+    - Nodejs10.15
